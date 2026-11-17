@@ -1,15 +1,16 @@
 // A token-radar-01 entry (Node 22, standard library only).
 //
 // The program reads the sealed snapshot from /input/snapshot.json (or --input <file|dir>), scores
-// every rankable pre-token protocol with the radar-2 model in lib/model.ts, writes the ranked board
+// every rankable pre-token protocol with the radar-3 model in lib/model.ts, writes the ranked board
 // to /output/board.json, and copies this repository's dashboard/ and screenshots/ to /output. Last,
 // it writes /output/dossier.json, the summary the judge reads, with the vendored make.fun library.
 //
 // The dashboard is a static page, no framework and no network: dashboard/index.html, dashboard/app.css
 // and dashboard/app.js read /output/data.js, which this program writes from the same board. The board
 // covers the whole watchlist and every other rankable pre-token protocol the snapshot carries; the
-// model prices each one from its category's own market multiple, its seven-day growth and how long it
-// has run with no token on record, and every row carries a farm plan derived from its own figures.
+// model prices each one from a partially pooled category multiple, its seven-day growth, how long it
+// has run with no token on record, and how many chains it runs on, and every row carries a farm plan
+// with its own gas-priced budget, derived from its own figures.
 //
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input ../input/snapshot.json
